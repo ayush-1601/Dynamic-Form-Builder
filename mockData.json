@@ -1,0 +1,88 @@
+{
+  "formTitle": "User Registration Form",
+  "formDescription": "user registration form description",
+  "fields": [
+    {
+      "label": "Username",
+      "type": "text",
+      "required": true,
+      "id": "username",
+      "validation": {
+        "minLength": 3,
+        "maxLength": 20
+      }
+    },
+    {
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "id": "email",
+      "validation": {
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+        "message": "Please enter a valid email address"
+      }
+    },
+    {
+      "label": "Password",
+      "type": "password",
+      "required": true,
+      "id": "password",
+      "validation": {
+        "minLength": 8,
+
+        "message": "Password must be at least 8 characters long"
+      }
+    },
+    {
+      "label": "Country",
+      "type": "select",
+      "options": [
+        { "label": "India", "value": "india" },
+        { "label": "USA", "value": "usa" },
+        { "label": "UK", "value": "uk" }
+      ],
+      "required": false,
+      "id": "country"
+    },
+    {
+      "label": "Gender",
+      "type": "radio",
+      "options": [
+        { "label": "Male", "value": "male" },
+        { "label": "Female", "value": "female" },
+        { "label": "Other", "value": "other" }
+      ],
+      "required": true,
+      "id": "gender"
+    },
+    {
+      "label": "Skills",
+      "type": "checkbox",
+      "options": [
+        { "label": "React", "value": "react" },
+        { "label": "Node.js", "value": "nodejs" },
+        { "label": "Python", "value": "python" }
+      ],
+      "required": false,
+      "id": "skills"
+    },
+    {
+      "label": "Short Bio",
+      "type": "textarea",
+      "required": false,
+      "id": "bio"
+    },
+    {
+      "label": "Upload profile picture",
+      "type": "file",
+      "required": false,
+      "id": "profilepicture"
+    },
+    {
+      "label": "Date of Birth",
+      "type": "date",
+      "required": false,
+      "id": "dob"
+    }
+  ]
+}
