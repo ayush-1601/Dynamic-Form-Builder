@@ -1,70 +1,301 @@
-# Getting Started with Create React App
+# Dynamic Form Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **Dynamic Form Generator** built using React.js and Chakra UI, allowing users to upload form schemas in JSON format and generate customizable forms.
 
-## Available Scripts
+## Core Features
 
-In the project directory, you can run:
+- **Upload JSON Schema:** Users can upload a JSON schema that defines the structure of the form.
+- **Dynamic Form Rendering:** Based on the uploaded schema, forms are dynamically generated with various field types such as text, number, date, and more.
+- **Supported Field Types:**
+     - Text
+     - Email
+     - Password
+     - Number
+     - Date
+     - Select (dropdown)
+     - Radio buttons
+     - Checkbox
+     - Textarea
+     - File upload
+- **Form Validations:** Implemented validation rules for each field type (e.g., required fields, email format, min/max length, regex patterns). Displays error message for invalid fields and prevent form submission if validation fails.
+- **Form Submission:** Form data is stored locally and can be retrieved later. Also displays form responses in JSON format.
+- **Local Storage Persistence:** Form schemas and responses are stored in the browser’s local storage, enabling persistence across sessions.
+- **Customizable UI:** Styled with Chakra UI for a clean and responsive design.
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You can view a live demo of the app [here](https://github.com/user-attachments/assets/0903db55-30d3-4bdf-89c2-088b37b2fb51).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **React.js**: Frontend library to build the dynamic form components and manage the state.
+- **Chakra UI**: A simple and customizable component library for React.
+- **UUID**: To generate unique identifiers for form submissions.
+- **LocalStorage**: To store form schema and responses persistently in the browser.
+- **CSS**: For styling (using Chakra UI for UI components and some custom styles).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+dynamic-form-builder/
+└── src/
+    ├── components/
+    │   ├── dynamicForm.js      # Handles dynamic form rendering based on schema
+    │   ├── fileUpload.js       # Handles file upload and reading JSON schema
+    │   ├── formList.js         # Displays list of previous form submissions
+    │
+    ├── constants/
+    │   └── colors.js           # Defines color palette for the app
+    │
+    ├── pages/
+    │   ├── homePage.js         # Home page for uploading form schema and displaying form list
+    │   └── formPage.js         # Form page to render and submit the dynamic form
+    │
+    ├── App.js                  # Main app component to set up routing
+    ├── index.js                # Main entry point for the app
+    │
+└── public/
+    ├── index.html              # The HTML template for the app
+    └── favicon.ico             # App favicon
+└── .gitignore                  # Git ignore file
+└── package.json                # Project metadata and dependencies
+└── README.md                   # Project documentation
+└── LICENSE                     # Project license
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js (>=14.x)
+- npm or yarn (recommended)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Steps to Run the Project
 
-## Learn More
+1. Clone the repository:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    git clone https://github.com/your-username/dynamic-form-builder.git
+    cd dynamic-form-builder
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies:
 
-### Code Splitting
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Run the development server:
 
-### Analyzing the Bundle Size
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    This will start the app on `http://localhost:3000`.
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 1. **Home Page**:
+   - Upload a JSON file containing the form schema using the file upload component.
+   - Once the schema is uploaded, the app will generate a dynamic form based on the schema.
 
-### Advanced Configuration
+### 2. **Form Page**:
+- The form generated from the schema will be displayed.
+- Users can fill in the form and submit the responses.
+- Responses will be stored locally, and users can view previously submitted forms.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. **Responses**:
+  - To See responses, go back to Home page and click on "view response" button.
 
-### Deployment
+## Example JSON Schema
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Here is an example of a simple form schema in JSON format: (mockData.json)
 
-### `npm run build` fails to minify
+```json
+{
+  "formTitle": "User Registration Form",
+  "formDescription": "user registration form description",
+  "fields": [
+    {
+      "label": "Username",
+      "type": "text",
+      "required": true,
+      "id": "username",
+      "validation": {
+        "minLength": 3,
+        "maxLength": 20
+      }
+    },
+    {
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "id": "email",
+      "validation": {
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+        "message": "Please enter a valid email address"
+      }
+    },
+    {
+      "label": "Password",
+      "type": "password",
+      "required": true,
+      "id": "password",
+      "validation": {
+        "minLength": 8,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        "message": "Password must be at least 8 characters long"
+      }
+    },
+    {
+      "label": "Country",
+      "type": "select",
+      "options": [
+        { "label": "India", "value": "india" },
+        { "label": "USA", "value": "usa" },
+        { "label": "UK", "value": "uk" }
+      ],
+      "required": false,
+      "id": "country"
+    },
+    {
+      "label": "Gender",
+      "type": "radio",
+      "options": [
+        { "label": "Male", "value": "male" },
+        { "label": "Female", "value": "female" },
+        { "label": "Other", "value": "other" }
+      ],
+      "required": true,
+      "id": "gender"
+    },
+    {
+      "label": "Skills",
+      "type": "checkbox",
+      "options": [
+        { "label": "React", "value": "react" },
+        { "label": "Node.js", "value": "nodejs" },
+        { "label": "Python", "value": "python" }
+      ],
+      "required": false,
+      "id": "skills"
+    },
+    {
+      "label": "Short Bio",
+      "type": "textarea",
+      "required": false,
+      "id": "bio"
+    },
+    {
+      "label": "Upload profile picture",
+      "type": "file",
+      "required": false,
+      "id": "profilepicture"
+    },
+    {
+      "label": "Date of Birth",
+      "type": "date",
+      "required": false,
+      "id": "dob"
+    }
+  ]
+}
+{
+  "formTitle": "User Registration Form",
+  "formDescription": "user registration form description",
+  "fields": [
+    {
+      "label": "Username",
+      "type": "text",
+      "required": true,
+      "id": "username",
+      "validation": {
+        "minLength": 3,
+        "maxLength": 20
+      }
+    },
+    {
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "id": "email",
+      "validation": {
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+        "message": "Please enter a valid email address"
+      }
+    },
+    {
+      "label": "Password",
+      "type": "password",
+      "required": true,
+      "id": "password",
+      "validation": {
+        "minLength": 8,
+
+        "message": "Password must be at least 8 characters long"
+      }
+    },
+    {
+      "label": "Country",
+      "type": "select",
+      "options": [
+        { "label": "India", "value": "india" },
+        { "label": "USA", "value": "usa" },
+        { "label": "UK", "value": "uk" }
+      ],
+      "required": false,
+      "id": "country"
+    },
+    {
+      "label": "Gender",
+      "type": "radio",
+      "options": [
+        { "label": "Male", "value": "male" },
+        { "label": "Female", "value": "female" },
+        { "label": "Other", "value": "other" }
+      ],
+      "required": true,
+      "id": "gender"
+    },
+    {
+      "label": "Skills",
+      "type": "checkbox",
+      "options": [
+        { "label": "React", "value": "react" },
+        { "label": "Node.js", "value": "nodejs" },
+        { "label": "Python", "value": "python" }
+      ],
+      "required": false,
+      "id": "skills"
+    },
+    {
+      "label": "Short Bio",
+      "type": "textarea",
+      "required": false,
+      "id": "bio"
+    },
+    {
+      "label": "Upload profile picture",
+      "type": "file",
+      "required": false,
+      "id": "profilepicture"
+    },
+    {
+      "label": "Date of Birth",
+      "type": "date",
+      "required": false,
+      "id": "dob"
+    }
+  ]
+}
+
+```
+
