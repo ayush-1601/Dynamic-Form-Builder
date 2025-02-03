@@ -35,7 +35,7 @@ const DynamicForm = ({ schema, onSubmit }) => {
     reset(); // Reset form after submission
     toaster.success({
       title: "Form submitted succesfully",
-      type: 'success'
+      type: "success",
     });
   };
 
@@ -46,17 +46,26 @@ const DynamicForm = ({ schema, onSubmit }) => {
       centerContent
     >
       <Toaster />
-      <Box width="2xl" display="flex" flexDirection="column" spaceY="20px">
+      <Box
+        width={{ base: "98%", md: "lg", lg: "2xl" }}
+        display="flex"
+        flexDirection="column"
+        spaceY="20px"
+      >
         {/* Form Title and Description */}
         <Box
           width="full"
           backgroundColor={colorValues?.base}
-          p={10}
-          borderRadius={20}
+          p={{ base: 5, lg: 10 }}
+          borderRadius={{ base: 12, lg: 20 }}
         >
           <VStack alignItems="left" color={"white"} fontWeight="bold">
-            <Text fontSize="40px">{schema?.formTitle || ""}</Text>
-            <Text fontSize="20px">{schema?.formDescription || ""}</Text>
+            <Text fontSize={{ base: "28px", lg: "40px" }}>
+              {schema?.formTitle || ""}
+            </Text>
+            <Text fontSize={{ base: "16px", lg: "20px" }}>
+              {schema?.formDescription || ""}
+            </Text>
           </VStack>
         </Box>
 
@@ -103,12 +112,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="50%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -128,7 +137,9 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                     value={value}
                                     css={{ "--focus-color": "none" }}
                                     isInvalid={!!error}
-                                    placeholder={field?.placeholder || "Type here..."}
+                                    placeholder={
+                                      field?.placeholder || "Type here..."
+                                    }
                                   />
                                   <FormErrorMessage
                                     color="red"
@@ -158,12 +169,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="50%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -186,7 +197,10 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                       label: option.label,
                                       value: option.value,
                                     }))}
-                                    placeholder={field?.placeholder || `Select ${field?.label}`}
+                                    placeholder={
+                                      field?.placeholder ||
+                                      `Select ${field?.label}`
+                                    }
                                   />
                                   <FormErrorMessage
                                     color="red"
@@ -215,12 +229,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="50%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -282,12 +296,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="80%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -306,7 +320,7 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                     name={name}
                                     colorPalette="blue"
                                   >
-                                    <HStack spaceX={5}>
+                                    <Flex gap={4} wrap='wrap'>
                                       {field.options?.map((opt) => (
                                         <CheckboxCard
                                           label={opt.label}
@@ -314,7 +328,7 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                           value={opt.value}
                                         />
                                       ))}
-                                    </HStack>
+                                    </Flex>
                                   </CheckboxGroup>
                                   <FormErrorMessage
                                     color="red"
@@ -343,12 +357,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="50%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -372,7 +386,9 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                         required: field?.required,
                                       }
                                     )}
-                                    placeholder={field?.placeholder || `Type here...`}
+                                    placeholder={
+                                      field?.placeholder || `Type here...`
+                                    }
                                   />
                                   <FormErrorMessage
                                     color="red"
@@ -402,12 +418,12 @@ const DynamicForm = ({ schema, onSubmit }) => {
                             fieldState: { error },
                           }) => (
                             <Box
-                              borderRadius={20}
+                              borderRadius={{ base: 12, lg: 20 }}
                               width="full"
                               p={5}
                               backgroundColor={colorValues?.white}
                             >
-                              <Stack spaceY={5} width="50%">
+                              <Stack spaceY={{ base: 2, lg: 5 }} width="50%">
                                 <Text>
                                   {field.label}{" "}
                                   {field?.required && (
@@ -419,7 +435,7 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                 </Text>
 
                                 <Stack>
-                                  <HStack spaceX={5}>
+                                  <Flex gap={5} alignItems='center'>
                                     <Button
                                       as="label"
                                       htmlFor={field.id}
@@ -440,10 +456,14 @@ const DynamicForm = ({ schema, onSubmit }) => {
                                       fontSize="sm"
                                       color="gray.500"
                                       fontWeight="bold"
+                                      overflow='hidden'
+                                      whiteSpace='nowrap'
+                                      textOverflow='ellipsis'
                                     >
                                       {value ? value.name : "No file chosen"}
                                     </Text>
-                                  </HStack>
+                                  </Flex>
+
 
                                   <FormErrorMessage
                                     color="red"

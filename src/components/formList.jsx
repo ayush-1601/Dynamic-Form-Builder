@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { colorValues } from "../constants/colors";
 
 const FormList = ({ formResponses }) => {
@@ -13,20 +13,20 @@ const FormList = ({ formResponses }) => {
   };
 
   return (
-    <Box width="4xl" backgroundColor={colorValues?.base} borderRadius={20} p={5}>
-      <Text color="white" fontSize="20px">Generated Forms</Text>
-      <VStack borderRadius={25} backgroundColor={colorValues.white} mt={5}>
+    <Box width={{base:'xs', md: 'lg', lg:"4xl"}} backgroundColor={colorValues?.base} borderRadius={{base: 12,lg:20}} p={{ base: 4, lg: 5 }}>
+      <Text color="white" fontSize={{base:'16px', lg:"20px"}}>Generated Forms</Text>
+      <VStack borderRadius={{base: 12,lg:25}} backgroundColor={colorValues.white} mt={5}>
         {getUniqueFormResponses(formResponses).map((response) => (
-          <Box key={response.formID} display="flex" justifyContent="space-between" width="100%" padding={5} alignItems="center">
-            <Text>Form ID: {response?.formID}</Text>
-            <HStack>
-              <Button colorScheme="blue" onClick={() => window.open(`/${response?.formID}/responses`, "_blank")}>
+          <Box key={response.formID} display="flex" justifyContent="space-between" width="100%" padding={5} alignItems="center" gap={4}>
+            <Text fontSize={{base:'12px', lg:"16px"}}>Form ID: {response?.formID}</Text>
+            <Flex flexDirection={{base: 'column', lg: 'row'}} gap='10px'>
+              <Button colorScheme="blue" onClick={() => window.open(`/${response?.formID}/responses`, "_blank")} size={{base: 'xs', lg: 'md'}}>
                 View Responses
               </Button>
-              <Button colorScheme="blue" onClick={() => window.open(`/${response?.formID}/form`, "_blank")}>
+              <Button colorScheme="blue" onClick={() => window.open(`/${response?.formID}/form`, "_blank")} size={{base: 'xs', lg: 'md'}}>
                 View Form
               </Button>
-            </HStack>
+            </Flex>
           </Box>
         ))}
       </VStack>

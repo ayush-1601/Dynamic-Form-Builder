@@ -37,22 +37,22 @@ const HomePage = () => {
     <Container
       centerContent
       backgroundColor={colorValues?.background}
-      w="100%"
+      w="100vw"
       height="100vh"
       maxWidth="none"
-      p={10}
+      paddingY={10}
     >
       <Box
         backgroundColor={colorValues?.base}
-        width="4xl"
-        p={10}
-        borderRadius={25}
+        width={{ base: "xs", md: 'xl',  lg: "4xl" }}
+        p={{ base: 5, md: 8,  lg: 10 }}
+        borderRadius={{ base: 8, md: 15,  lg: 25 }}
       >
         <Text
           as="h1"
           color={colorValues?.white}
           textAlign="center"
-          fontSize="4xl"
+          fontSize={{ base: "xs", md: 'xl',  lg: "4xl" }}
           fontWeight="bold"
         >
           Dynamic Form Generator

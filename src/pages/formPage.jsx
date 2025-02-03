@@ -70,7 +70,7 @@ const FormPage = () => {
 
 
   return (
-    <Container backgroundColor={colorValues?.background} maxWidth="none" p={10}>
+    <Container backgroundColor={colorValues?.background} maxWidth="none" p={{base:4 ,lg:10}}>
       <VStack spacing={5}>
         {/* Check if the form schema is available */}
         {formSchema ? (

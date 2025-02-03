@@ -27,16 +27,17 @@ const ResponsesPage = () => {
     >
       <Box
         backgroundColor={colorValues?.base}
-        width="4xl"
-        p={10}
+        width={{ base: "xs", md: 'xl',  lg: "4xl" }}
+        p={{ base: 5, md: 8,  lg: 10 }}
+        borderRadius={{ base: 8, md: 15,  lg: 25 }}
         mb={10}
-        borderRadius={25}
+
       >
         <Text
           as="h1"
           color={colorValues?.white}
           textAlign="center"
-          fontSize="2xl"
+          fontSize={{ base: "xs", md: 'lg',  lg: "2xl" }}
           fontWeight="bold"
         >
           Responses for Form {formID}{" "}
